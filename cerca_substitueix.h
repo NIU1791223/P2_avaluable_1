@@ -1,18 +1,15 @@
-#include "cerca_substitueix.h"
-#include <cstring>
+#ifndef CERCA_SUBSTITUEIX_H
+#define CERCA_SUBSTITUEIX_H
 
+const int MAX_STRING = 100;
 
-bool cercaString(char text[], char subStr[], int &posicio)
-{
+int cercaSubstitueix(char text[], char stringCerca[], char nouString[]);
 
-}
+#endif
 
-void substitueixString(char text[], int posicio, char stringOriginal[], char nouString[])
-{
+#include <iostream>
 
-}
+using namespace std;
 
-int cercaSubstitueix(char text[], char stringOriginal[], char nouString[])
-{
-
-}
+bool cercaString(char text[], char subStr[], int &posicio);
+void substitueixString(char text[], int posicio, char stringOriginal[], char nouString[]);
