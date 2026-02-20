@@ -1,6 +1,8 @@
-####Entrega del Exercici Avaluable 1
+Entrega del Exercici Avaluable 1
+================================
 
-###Enunciat
+Enunciat
+--------
 
 Implementeu una funció que, donat un text d’entrada substitueixi totes les aparicions d’un string que es passa com a paràmetre per un altre string que també es passa com a paràmetre. La funció ha de tenir aquesta capçalera:
 
