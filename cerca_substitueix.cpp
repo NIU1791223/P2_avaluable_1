@@ -17,7 +17,7 @@ bool cercaString(char text[], char subStr[], int &posicio)
                 strTrobat = true;
             }
         }
-        else //Reset en cas de fallar
+        else if (subStrIndex > 0)//Reset en cas de fallar
         {
             subStrIndex = 0;
             i--;//Repetir la que ha fallat per si coincideix amb la inicial, pensa que passaria amb text = "nna", subStr = "na" si no fos aquesta linea
@@ -26,8 +26,15 @@ bool cercaString(char text[], char subStr[], int &posicio)
         i++;
     }
     
-    posicio = i-subStrIndex;
-    return strTrobat;
+    if (strTrobat)
+    {
+        posicio = i-subStrIndex;
+        return strTrobat;
+    }
+    else
+    {
+        return false;
+    }
 }
 
 void substitueixString(char text[], int posicio, char stringOriginal[], char nouString[])
@@ -52,7 +59,6 @@ void substitueixString(char text[], int posicio, char stringOriginal[], char nou
         {
             //Desplacem tot a l'esquerra
             for(int j = (posicio + i); text[j] != '\0'; j++){
-                cout << "j: " << j << " text[j]: " << text[j] << " text[j+1]: " << text[j+1] << endl;
                 text[j] = text[j+1];
             }
 
@@ -89,5 +95,27 @@ void substitueixString(char text[], int posicio, char stringOriginal[], char nou
 
 int cercaSubstitueix(char text[], char stringOriginal[], char nouString[])
 {
-    return 0;
+    int nombreCanvis = 0;
+    int posicio = 0;
+    bool HiHaMesStr = cercaString(text, stringOriginal, posicio);
+    int nouStringLength = 0;
+
+    while (nouString[nouStringLength] != '\0')
+    {
+        nouStringLength++;
+    }
+    
+
+    while (HiHaMesStr)
+    {
+
+        substitueixString(text, posicio, stringOriginal, nouString);
+        nombreCanvis++;
+        posicio += nouStringLength;
+
+        HiHaMesStr = cercaString(text, stringOriginal, posicio);
+    }
+    
+
+    return nombreCanvis;
 }

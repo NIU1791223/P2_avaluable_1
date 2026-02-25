@@ -1,11 +1,11 @@
 #include "cerca_substitueix.h"
 
 int main(){
-    char str[MAX_STRING] = "Hola";
-    char original[MAX_STRING] = "ola";
-    char nou[MAX_STRING] = "aaaaaaaaaa";
+    char str[MAX_STRING] = "No fem cap canvi";
+    char original[MAX_STRING] = "ac";
+    char nou[MAX_STRING] = "abc";
 
-    substitueixString(str, 1, original, nou);
+    int c = cercaSubstitueix(str, original, nou);
 
-    cout << str << endl;
+    cout << str << " | Nombre de canvis: " << c << endl;
 }
